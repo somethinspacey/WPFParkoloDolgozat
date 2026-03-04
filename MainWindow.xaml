@@ -5,37 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFParkoloDolgozat"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <StackPanel Orientation="Vertical">
-        <Grid Height="434" Width="800">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="52*"/>
-                <RowDefinition Height="165*"/>
-            </Grid.RowDefinitions>
-            <GroupBox Header="Időpontok" Margin="0,30,0,0" Height="82" VerticalAlignment="Top" Grid.RowSpan="2" HorizontalAlignment="Center" Width="760"/>
+        Title="MainWindow" Height="800" Width="800">
+	<StackPanel Orientation="Vertical">
+		<Grid Height="854" Width="800">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="52*"/>
+				<RowDefinition Height="300*"/>
+			</Grid.RowDefinitions>
+			<GroupBox Header="Időpontok" Margin="0,30,0,0" Height="82" VerticalAlignment="Top" Grid.RowSpan="2" HorizontalAlignment="Center" Width="760"/>
 
 
 
-            <TextBlock HorizontalAlignment="Right" Margin="0,14,645,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135"><Run FontWeight="Bold" Text="Parkolódíj számoló"/></TextBlock>
-            <TextBox HorizontalAlignment="Left" Margin="330,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" Height="20" x:Name="TavozasPercBox"/>
-            <TextBox HorizontalAlignment="Left" Margin="153,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" Height="20" TextChanged="ErkezesPerc_TextChanged"/>
-            <TextBox HorizontalAlignment="Left" Margin="265,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60" Height="20" TextChanged="TavozasOra_TextChanged"/>
-            <TextBox HorizontalAlignment="Left" Margin="88,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60" Height="20" TextChanged="ErkezesOra_TextChanged"/>
-            <TextBlock HorizontalAlignment="Left" Margin="218,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="hu-hu" Text="Távozás:"/></TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="41,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48"><Run Text="Érkezés"/><Run Language="hu-hu" Text=":"/></TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="39,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"><Run Text="Óra: 0-23"/><Run Language="hu-hu" Text=" Perc: 0-59"/></TextBlock>
-            <GroupBox Header="Beállítások" Grid.Row="1" Margin="20,13,20,165"/>
-            <ComboBox HorizontalAlignment="Left" Margin="75,32,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged">
-                <ComboBoxItem Content="A zóna"/>
-                <ComboBoxItem Content="B zóna"/>
-                <ComboBoxItem Content="C zóna"/>
-            </ComboBox>
-            <TextBlock HorizontalAlignment="Left" Margin="36,35,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="hu-hu" Text="Zóna: "/></TextBlock>
-            <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="36,84,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-            <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="36,64,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+			<TextBlock HorizontalAlignment="Right" Margin="0,14,645,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135"><Run FontWeight="Bold" Text="Parkolódíj számoló"/></TextBlock>
+			<TextBox HorizontalAlignment="Left" Margin="372,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" Height="20" x:Name="TavozasPercBox"/>
+			<TextBox HorizontalAlignment="Left" Margin="153,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" Height="20" x:Name="ErkezesPercBox"/>
+			<TextBox HorizontalAlignment="Left" Margin="307,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60" Height="20" x:Name="TavozasOraBox"/>
+			<TextBox HorizontalAlignment="Left" Margin="88,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60" Height="20" x:Name="ErkezesOraBox"/>
+			<TextBlock HorizontalAlignment="Left" Margin="260,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="hu-hu" Text="Távozás:"/></TextBlock>
+			<TextBlock HorizontalAlignment="Left" Margin="41,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48"><Run Text="Érkezés"/><Run Language="hu-hu" Text=":"/></TextBlock>
+			<TextBlock HorizontalAlignment="Left" Margin="41,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"><Run Text="Óra: 0-23"/><Run Language="hu-hu" Text=" Perc: 0-59"/></TextBlock>
+			<GroupBox Header="Beállítások" Grid.Row="1" Margin="20,10,20,620"/>
+			<ComboBox HorizontalAlignment="Left" Margin="75,32,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" x:Name="zonabox">
+				<ComboBoxItem Content="A zóna"/>
+				<ComboBoxItem Content="B zóna"/>
+				<ComboBoxItem Content="C zóna"/>
+			</ComboBox>
+			<TextBlock HorizontalAlignment="Left" Margin="36,35,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="hu-hu" Text="Zóna: "/></TextBlock>
+			<CheckBox Content="felfele kerekites egesz orara" HorizontalAlignment="Left" Margin="36,84,0,0" Grid.Row="1" VerticalAlignment="Top" Checked="RoundUp_Checked" x:Name="RoundUpCheck"/>
+			<CheckBox Content="Pótdíj" HorizontalAlignment="Left" Margin="36,64,0,0" Grid.Row="1" VerticalAlignment="Top" Checked="Potdij_Checked" x:Name="PotdijCheck"/>
+			<Button Content="szamolas" HorizontalAlignment="Left" Margin="36,118,0,0" Grid.Row="1" VerticalAlignment="Top" Height="30" Width="88" Click="CalcButton_Click"/>
+			<Button Content="torles" HorizontalAlignment="Left" Margin="129,118,0,0" Grid.Row="1" VerticalAlignment="Top" Height="30" Width="88" Click="DeleteButton_Click"/>
+			<Rectangle HorizontalAlignment="Center" Height="403" Margin="0,198,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Width="720"/>
+			<GroupBox Header="Eredmény" Margin="20,153,20,95" Grid.Row="1">
+				<TextBlock HorizontalAlignment="Left" Margin="24,0,0,0" TextWrapping="Wrap" Text="TextBlock" Width="697" Height="381" x:Name="FizetendoDetailed"/>
+			</GroupBox>
+			<TextBlock HorizontalAlignment="Left" Margin="40,177,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="hu-hu" Text="Fizetendő:"/></TextBlock>
+			<TextBlock HorizontalAlignment="Left" Margin="105,177,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" x:Name="FizetendoShort"><Run Language="hu-hu" Text="..."/></TextBlock>
+			<TextBlock HorizontalAlignment="Left" Margin="135,177,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="hu-hu" Text="Ft"/></TextBlock>
 
 
 
-        </Grid>
-    </StackPanel>
+		</Grid>
+		<TextBox TextWrapping="Wrap" Text="TextBox" Width="120"/>
+	</StackPanel>
 </Window>
