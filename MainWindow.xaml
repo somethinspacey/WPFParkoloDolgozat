@@ -30,7 +30,7 @@
                 <ComboBoxItem Content="B zóna"/>
                 <ComboBoxItem Content="C zóna"/>
             </ComboBox>
-            <TextBlock HorizontalAlignment="Left" Margin="36,35,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="hu-hu" Text="Zóna:"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="36,35,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="hu-hu" Text="Zóna: "/></TextBlock>
             <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="36,84,0,0" Grid.Row="1" VerticalAlignment="Top"/>
             <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="36,64,0,0" Grid.Row="1" VerticalAlignment="Top"/>
 
